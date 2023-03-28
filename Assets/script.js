@@ -1,5 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// define all variables
+var passwordLength;
+var passwordLowercase;
+var passwordUppercase;
+var passwordNumeric;
+var passwordSpecial;
 
 function generatePassword() {
   var criteria = window.confirm("Please choose which password criteria to include");
@@ -7,12 +13,12 @@ function generatePassword() {
     return;
   }
   var passwordLength = window.prompt("Choose a length between 8 - 128 characters");
-    
+  //var index = Math.floor(Math.random() * passwordLength);
   if (!passwordLength) {
     return;
   }
   var passwordLowercase = window.confirm("Would you like to include lowercase letters?");
- 
+  
   if (!passwordLowercase) {
     return;
   }
