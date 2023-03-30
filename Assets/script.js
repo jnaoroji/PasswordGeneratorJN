@@ -19,7 +19,7 @@ var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", 
 generateBtn.addEventListener("click", writePassword);
 
 //Start function to define password criteria
-function CreatePassword() {
+function generatePassword() {
   var criteria = window.confirm("Please choose which password criteria to include");
   if (!criteria) {
     return;
@@ -43,7 +43,7 @@ function CreatePassword() {
     console.log(passwordLowercase = false);
   }
   else if (passwordLowercase){
-    UserChoice.push(lower);
+    UserChoice.concat(lower);
   }
 
   var passwordUppercase = window.confirm("Would you like to include Uppercase letters?");
@@ -51,7 +51,7 @@ function CreatePassword() {
     console.log(passwordUppercase = false);
   }
   else if (passwordUppercase){
-    UserChoice.push(lower.toUpperCase);
+    UserChoice.concat(lower.toUpperCase);
    
   }
   var passwordNumeric = window.confirm("Would you like to include Numbers?");
@@ -59,25 +59,22 @@ function CreatePassword() {
     console.log(passwordNumeric = false);
   }
   else if (passwordNumeric) {
-    UserChoice.push(number);
+    UserChoice.concat(number);
   }
   var passwordSpecial = window.confirm("Would you like to include Special Characters?");
   if (!passwordSpecial) {
     console.log(passwordSpecial = false);
   }
   else if (passwordSpecial) {
-    UserChoice.push(special);
+    UserChoice.concat(special);
   }
 }
   var userChoice = [];
   console.log(userChoice);
-  
 
-  for(var i = 0; i < passwordLength; i++){
-    password += userChoice(Math.floor(Math.random() * passwordLength));
-  }
-  return;
-}
+   
+ // return;
+//}
   //function CreatePassword ([Math.floor(Math.random() * userChoice.length)]) ;
 
   //function 
@@ -100,8 +97,8 @@ function CreatePassword() {
 
 // Write password to the #password input
 function writePassword() {
-
-  var password = generatePassword();
+ 
+  var password = generatePassword()
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
