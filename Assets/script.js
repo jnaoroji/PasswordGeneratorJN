@@ -29,9 +29,7 @@ function generatePassword() {
   var passwordLength = 0;
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     passwordLength = parseInt(window.prompt("Choose a length between 8 - 128 characters"));
-  }
-  
-    
+  } 
   var passwordLowercase = window.confirm("Would you like to include lowercase letters?");
   
   if (passwordLowercase) {
@@ -48,7 +46,6 @@ function generatePassword() {
     UserChoice = UserChoice.concat(number);
     password += getRandom(number);
   }
-
   var passwordSpecial = window.confirm("Would you like to include Special Characters?");
   if (passwordSpecial) {
     UserChoice = UserChoice.concat(special);
@@ -66,7 +63,7 @@ function generatePassword() {
   return arr[Math.floor(Math.random() * arr.length)];
  }
 
-// Write password to the #password input
+// Write password to the #password text area
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
